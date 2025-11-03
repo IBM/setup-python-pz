@@ -1,0 +1,6 @@
+Apache License
+Version 2.0, January 2004
+
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+[Full Apache-2.0 license text omitted here for brevity — include full text when redistributing.]
