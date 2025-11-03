@@ -1,0 +1,61 @@
+{
+  "$schema": "https://raw.githubusercontent.com/mend-toolkit/mend-examples/main/Repo-Integration/Schemas/ghc-integration-schema.json",
+  "settingsInheritedFrom": "whitesource-config/whitesource-config@master",
+  "scanSettings": {
+    "configMode": "AUTO",
+    "baseBranches": ["main"],
+    "enableIaC": true,
+    "enableLicenseViolations": true,
+    "enableReachability": false,
+    "exploitability": true,
+    "javaVersion": 17,
+    "repoNameSync": true
+  },
+  "scanSettingsSAST": {
+    "enableScan": false,
+    "scanPullRequests": false,
+    "incrementalScan": true
+  },
+  "checkRunSettings": {
+    "displayMode": "diff",
+    "vulnerableCheckRunConclusionLevel": "failure",
+    "licenseCheckRunConclusionLevel": "failure",
+    "strictMode": "warning",
+    "useMendCheckNames": true,
+    "failOnVulnerabilityMinSeverity": "medium",
+    "failOnVulnerabilityMinCvss": 0.0
+  },
+  "issueSettings": {
+    "minSeverityLevel": "medium",
+    "issueType": "DEPENDENCY",
+    "customLabels": ["dependencies", "security", "mend"],
+    "iacIssues": false
+  },
+  "remediateSettings": {
+    "enableRenovate": true,
+    "workflowRules": {
+      "enabled": true,
+      "minVulnerabilitySeverity": "medium",
+      "minVulnerabilityScore": 4.0
+    },
+    "extends": [
+      "config:recommended",
+      ":dependencyDashboard",
+      ":semanticCommits",
+      ":disableMajorUpdates"
+    ],
+    "labels": ["dependencies", "security"],
+    "prTitle": "chore(deps): {{depName}} security update to {{newVersion}}",
+    "schedule": ["after 2am and before 4am on every weekday"],
+    "timezone": "UTC",
+    "automerge": false,
+    "platformAutomerge": false,
+    "packageRules": [
+      {
+        "description": "Disable major (breaking) upgrades per Renovate docs",
+        "matchUpdateTypes": ["major"],
+        "enabled": false
+      }
+    ]
+  }
+}
