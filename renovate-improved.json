@@ -1,0 +1,38 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "schedule": [
+    "before 4am on Monday"
+  ],
+  "labels": [
+    "dependencies",
+    "renovate"
+  ],
+  "prHourlyLimit": 2,
+  "prConcurrentLimit": 5,
+  "packageRules": [
+    {
+      "groupName": "GitHub Actions",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "schedule": [
+        "before 4am on Monday"
+      ]
+    },
+    {
+      "groupName": "Development Dependencies",
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "schedule": [
+        "before 4am on Monday"
+      ],
+      "reviewers": [
+        "@IBM/setup-python-pz-maintainers"
+      ]
+    }
+  ]
+}
