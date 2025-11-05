@@ -2,5 +2,43 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "schedule": [
+    "before 4am on Monday"
+  ],
+  "labels": [
+    "dependencies",
+    "renovate"
+  ],
+  "prHourlyLimit": 2,
+  "prConcurrentLimit": 3,
+  "separateMajorMinor": false,
+  "separateMultipleMajor": false,
+  "separateMinorPatch": false,
+  "packageRules": [
+    {
+      "description": "Only allow patch updates for all dependencies",
+      "matchUpdateTypes": ["major", "minor"],
+      "enabled": false
+    },
+    {
+      "description": "Allow patch updates only",
+      "matchUpdateTypes": ["patch"],
+      "enabled": true
+    },
+    {
+      "description": "Group GitHub Actions updates",
+      "groupName": "GitHub Actions",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["patch"],
+      "schedule": ["before 4am on Monday"]
+    },
+    {
+      "description": "Group npm dependencies patch updates",
+      "groupName": "npm dependencies (patch only)",
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["patch"],
+      "schedule": ["before 4am on Monday"]
+    }
   ]
 }
