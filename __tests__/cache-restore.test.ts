@@ -7,10 +7,14 @@ import {getCacheDistributor} from '../src/cache-distributions/cache-factory';
 import {State} from '../src/cache-distributions/cache-distributor';
 
 describe('restore-cache', () => {
-  const pipFileLockHash = 'f8428d7cf00ea53a5c3702f0a9cb3cc467f76cd86a34723009350c4e4b32751a'; // pragma: allowlist secret - test fixture hash
-  const requirementsHash = 'd8110e0006d7fb5ee76365d565eef9d37df1d11598b912d3eb66d398d57a1121'; // pragma: allowlist secret - test fixture hash
-  const requirementsLinuxHash = '2d0ff7f46b0e120e3d3294db65768b474934242637b9899b873e6283dfd16d7c'; // pragma: allowlist secret - test fixture hash
-  const poetryLockHash = 'f24ea1ad73968e6c8d80c16a093ade72d9332c433aeef979a0dd943e6a99b2ab'; // pragma: allowlist secret - test fixture hash
+  const pipFileLockHash =
+    'f8428d7cf00ea53a5c3702f0a9cb3cc467f76cd86a34723009350c4e4b32751a'; // pragma: allowlist secret - test fixture hash
+  const requirementsHash =
+    'd8110e0006d7fb5ee76365d565eef9d37df1d11598b912d3eb66d398d57a1121'; // pragma: allowlist secret - test fixture hash
+  const requirementsLinuxHash =
+    '2d0ff7f46b0e120e3d3294db65768b474934242637b9899b873e6283dfd16d7c'; // pragma: allowlist secret - test fixture hash
+  const poetryLockHash =
+    'f24ea1ad73968e6c8d80c16a093ade72d9332c433aeef979a0dd943e6a99b2ab'; // pragma: allowlist secret - test fixture hash
   const poetryConfigOutput = `
 cache-dir = "/Users/patrick/Library/Caches/pypoetry"
 experimental.new-installer = false

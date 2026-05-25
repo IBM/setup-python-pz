@@ -110,16 +110,14 @@ async function run() {
 
     if (versions.length) {
       let pythonVersion = '';
-      let arch: string = core.getInput('architecture') || os.arch(); // Original line
+      let arch: string = core.getInput('architecture') || os.arch();
 
-      // --- ADD THIS LOGIC HERE ---
-      // If os.arch() returns 'ppc64', we assume it's ppc64le for this action.
-      // This is a common scenario where Node.js reports 'ppc64' for 'ppc64le' systems.
+      // Node.js may report ppc64le systems as `ppc64`.
+      // Normalize to `ppc64le` to match Python distribution naming.
       if (arch === 'ppc64') {
-        core.info(`Detected architecture as 'ppc64', adjusting to 'ppc64le' for download purposes.`);
+        core.info("Detected architecture 'ppc64'; normalizing to 'ppc64le'.");
         arch = 'ppc64le';
       }
-      // --- END ADDITION ---
 
       const updateEnvironment = core.getBooleanInput('update-environment');
       core.startGroup('Installed versions');
@@ -127,7 +125,7 @@ async function run() {
         if (isPyPyVersion(version)) {
           const installed = await finderPyPy.findPyPyVersion(
             version,
-            arch, // 'arch' variable is used here
+            arch,
             updateEnvironment,
             checkLatest,
             allowPreReleases
@@ -139,7 +137,7 @@ async function run() {
         } else if (isGraalPyVersion(version)) {
           const installed = await finderGraalPy.findGraalPyVersion(
             version,
-            arch, // 'arch' variable is used here
+            arch,
             updateEnvironment,
             checkLatest,
             allowPreReleases
@@ -150,11 +148,11 @@ async function run() {
           if (version.startsWith('2')) {
             core.warning(
               'The support for python 2.7 was removed on June 19, 2023. Related issue: https://github.com/actions/setup-python/issues/672'
-              );
+            );
           }
           const installed = await finder.useCpythonVersion(
             version,
-            arch, // 'arch' variable is used here
+            arch,
             updateEnvironment,
             checkLatest,
             allowPreReleases,
