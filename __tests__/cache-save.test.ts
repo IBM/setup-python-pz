@@ -5,10 +5,14 @@ import {run} from '../src/cache-save';
 import {State} from '../src/cache-distributions/cache-distributor';
 
 describe('run', () => {
-  const pipFileLockHash = 'd1dd6218299d8a6db5fc2001d988b34a8b31f1e9d0bb4534d377dde7c19f64b3'; // pragma: allowlist secret - test fixture hash
-  const requirementsHash = 'd8110e0006d7fb5ee76365d565eef9d37df1d11598b912d3eb66d398d57a1121'; // pragma: allowlist secret - test fixture hash
-  const requirementsLinuxHash = '2d0ff7f46b0e120e3d3294db65768b474934242637b9899b873e6283dfd16d7c'; // pragma: allowlist secret - test fixture hash
-  const poetryLockHash = '571bf984f8d210e6a97f854e479fdd4a2b5af67b5fdac109ec337a0ea16e7836'; // pragma: allowlist secret - test fixture hash
+  const pipFileLockHash =
+    'd1dd6218299d8a6db5fc2001d988b34a8b31f1e9d0bb4534d377dde7c19f64b3'; // pragma: allowlist secret - test fixture hash
+  const requirementsHash =
+    'd8110e0006d7fb5ee76365d565eef9d37df1d11598b912d3eb66d398d57a1121'; // pragma: allowlist secret - test fixture hash
+  const requirementsLinuxHash =
+    '2d0ff7f46b0e120e3d3294db65768b474934242637b9899b873e6283dfd16d7c'; // pragma: allowlist secret - test fixture hash
+  const poetryLockHash =
+    '571bf984f8d210e6a97f854e479fdd4a2b5af67b5fdac109ec337a0ea16e7836'; // pragma: allowlist secret - test fixture hash
 
   // core spy
   let infoSpy: jest.SpyInstance;
