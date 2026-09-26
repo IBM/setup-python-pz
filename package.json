@@ -38,6 +38,18 @@
     "@iarna/toml": "^3.0.0",
     "semver": "^7.7.1"
   },
+  "overrides": {
+    "fast-xml-parser": ">=5.7.0",
+    "minimatch": "^3.1.4",
+    "undici": ">=6.28.0",
+    "flatted": ">=3.4.2",
+    "js-yaml": ">=4.3.2",
+    "brace-expansion": "^1.1.18",
+    "browserslist": ">=4.28.7",
+    "picomatch": ">=2.3.2",
+    "baseline-browser-mapping": ">=2.11.0",
+    "@babel/core": "^7.29.6"
+  },
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@types/node": "^24.10.1",
