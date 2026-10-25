@@ -11,4 +11,6 @@ on:
 jobs:
   call-licensed:
     name: Licensed
+    permissions:
+      contents: read
     uses: actions/reusable-workflows/.github/workflows/licensed.yml@main
